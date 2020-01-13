@@ -1,4 +1,4 @@
-
+![](https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/planning/smart-todo-app.png)
 
 
 ### [Draw.io link to ERD](https://www.draw.io/#G1HtIF7TwwFAZ-7HGFtpatX16qC0R_NyKg)
