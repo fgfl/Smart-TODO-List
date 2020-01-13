@@ -3,6 +3,7 @@
 [Database of apis](https://www.programmableweb.com/category/all/apis?keyword=movie&page=1)
 
 [food db](https://www.fatsecret.com/calories-nutrition/)
+<<<<<<< HEAD
 
 
 
@@ -26,3 +27,5 @@
 ### Products
 - https://data.world/promptcloud/product-data-from-walmart-usa/workspace/query?queryid=eff98b3a-3899-499d-994a-e962c89ea6c7
   - query for not foods category
+=======
+>>>>>>> e60214cbf79dedc857f789e640d47bb8f2729399
