@@ -9,40 +9,58 @@ const {window} = new JSDOM(`...`);
 var $ = require("jquery")(window);
 
 const fetchCategory = (text) => {
-  const deepCatEndpoint = 'https://api.meaningcloud.com/deepcategorization-1.0';
+  const username = 'Frederick';
+  const classifierName = 'TEST';
+
   const options = {
-    key: process.env.DB_MEANINGCLOUD_KEY,
-    txt: text,
-    model: 'IAB_2.0_en',
+    'method': 'POST',
+    'uri': `https://api.uclassify.com/v1/${username}/${classifierName}/classify`,
+    'header': {
+      'Content-Type': 'application/json',
+      'Authorization': process.env.DB_UCLASSIFY_READ_KEY,
+    },
+    'body': {
+      'texts': [text],
+    },
+    'json': true,
   };
 
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://api.meaningcloud.com/deepcategorization-1.0",
-    "method": "POST",
-    "headers": {
-      "content-type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-      "key": process.env.DB_MEANINGCLOUD_KEY,
-      "txt": text,
-      "model": "IAB_2.0_en"
-    }
-}
+  request(options)
+    .then((body) => {
+      console.log(body);
+    })
+    .catch((err) => {
+      console.error('request call failed.', err);
+    });
 
-  console.log($.param(options));
+  // const deepCatEndpoint = 'https://api.meaningcloud.com/deepcategorization-1.0';
+  // const options = {
+  //   key: process.env.DB_MEANINGCLOUD_KEY,
+  //   txt: text,
+  //   model: 'IAB_2.0_en',
+  // };
 
-  $.ajax(settings).done(function (response) {
-    console.log(JSON.stringify(response.category_list));
-  });
-  // $.post(deepCatEndpoint, $.param(options))
-  //   .then((res) => {
-  //     console.table(res);
-  //   })
-  //   .catch((err) => {
-  //     console.error('error', err);
-  //   });
+  // var settings = {
+  //   "async": true,
+  //   "crossDomain": true,
+  //   "url": "https://api.meaningcloud.com/deepcategorization-1.0",
+  //   "method": "POST",
+  //   "headers": {
+  //     "content-type": "application/x-www-form-urlencoded"
+  //   },
+  //   "data": {
+  //     "key": process.env.DB_MEANINGCLOUD_KEY,
+  //     "txt": text,
+  //     "model": "IAB_2.0_en"
+  //   }
+  // }
+
+  // console.log($.param(options));
+
+  // $.ajax(settings).done(function (response) {
+  //   console.log(JSON.stringify(response.category_list));
+  // });
+
 
 };
 
