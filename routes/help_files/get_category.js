@@ -15,9 +15,9 @@ const fetchCategory = (text) => {
   const options = {
     'method': 'POST',
     'uri': `https://api.uclassify.com/v1/${username}/${classifierName}/classify`,
-    'header': {
+    'headers': {
       'Content-Type': 'application/json',
-      'Authorization': process.env.DB_UCLASSIFY_READ_KEY,
+      'Authorization': `Token ${process.env.DB_UCLASSIFY_READ_KEY}`,
     },
     'body': {
       'texts': [text],
@@ -26,13 +26,14 @@ const fetchCategory = (text) => {
   };
 
   request(options)
-    .then((body) => {
-      console.log(body);
+    .then((res) => {
+      console.log(JSON.stringify(res));
     })
     .catch((err) => {
       console.error('request call failed.', err);
     });
 
+  // ----- meaning cloud stuff -----
   // const deepCatEndpoint = 'https://api.meaningcloud.com/deepcategorization-1.0';
   // const options = {
   //   key: process.env.DB_MEANINGCLOUD_KEY,
