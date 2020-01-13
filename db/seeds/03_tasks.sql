@@ -11,7 +11,7 @@ INSERT INTO tasks (
   VALUES (
     1,
     1,
-    "Buy some apples",
+    'Buy some apples',
     NULL,
     NULL,
     NULL,
@@ -29,7 +29,7 @@ INSERT INTO tasks (
   VALUES (
     2,
     1,
-    "Eat some kangaroo",
+    'Eat some kangaroo',
     NULL,
     NULL,
     NULL,
@@ -47,7 +47,7 @@ INSERT INTO tasks (
   VALUES (
     3,
     1,
-    "Read Where the Red Fern Grows",
+    'Read Where the Red Fern Grows',
     NULL,
     NULL,
     NULL,
@@ -65,7 +65,7 @@ INSERT INTO tasks (
   VALUES (
     4,
     1,
-    "Watch Batman",
+    'Watch Batman',
     NULL,
     NULL,
     NULL,
@@ -85,7 +85,7 @@ INSERT INTO tasks (
   VALUES (
     1,
     2,
-    "Buy Pizza",
+    'Buy Pizza',
     NULL,
     NULL,
     NULL,
@@ -103,7 +103,7 @@ INSERT INTO tasks (
   VALUES (
     2,
     1,
-    "Eat cookies",
+    'Eat cookies',
     NULL,
     NULL,
     NULL,
@@ -121,7 +121,7 @@ INSERT INTO tasks (
   VALUES (
     3,
     1,
-    "Read Narnia",
+    'Read Narnia',
     NULL,
     NULL,
     NULL,
@@ -139,7 +139,7 @@ INSERT INTO tasks (
   VALUES (
     4,
     1,
-    "Watch Avenger",
+    'Watch Avenger',
     NULL,
     NULL,
     NULL,
