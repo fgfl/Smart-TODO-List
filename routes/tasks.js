@@ -60,10 +60,7 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(data => {
         const users = data.rows;
-        console.log(users);
-        res.json({
-          users
-        });
+        return users;
       })
       .catch(err => {
         res
@@ -77,12 +74,12 @@ module.exports = (db) => {
     const queryString = `
       UPDATE tasks
         SET
-          category_id = $1, 
-          user_id = $2, 
-          task_name = $3, 
-          schedule_date = $4, 
-          completed_date = $5, 
-          priority = $6, 
+          category_id = $1,
+          user_id = $2,
+          task_name = $3,
+          schedule_date = $4,
+          completed_date = $5,
+          priority = $6,
           details_url = $7
         WHERE id = $8
         RETURNING *;
