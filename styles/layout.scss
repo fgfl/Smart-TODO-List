@@ -1,9 +1,18 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #4c4c4c;
+
+  font-family: 'Cabin',
+    sans-serif;
 
   h1 {
-    color: #244751;
+    margin-top: 32px;
+    color: #FFF;
   }
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
 }
