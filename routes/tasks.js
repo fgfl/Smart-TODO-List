@@ -128,24 +128,26 @@ module.exports = (db) => {
       UPDATE tasks
         SET is_active = false
         WHERE user_id = $1
-        AND tasks.id = $2
+          AND tasks.id = $2
         RETURNING *;
     `;
     const queryParams = [
-      Number(req.session.user_id) || 1,
+      Number(req.session.user_id),
       Number(req.params.taskId)
     ];
-      db.query(queryString, queryParams)
-        .then(data => {
-          res.send(data);
-        })
-        .catch(err => {
-          res
-            .status(500)
-            .json({
-              error: err.message
-            });
-        });
+
+    console.log('params', queryParams)
+    db.query(queryString, queryParams)
+      .then(data => {
+        res.send(data.rows[0]);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({
+            error: err.message
+          });
+      });
   });
   return router;
 };

@@ -34,6 +34,7 @@ const renderTaskElm = (task) => {
   const taskList = $('.task-list');
   taskList.append(createTaskElement(task));
   taskList.children('.task:last-child').data(task);
+  console.log(taskList.children('.task:last-child').data());
 };
 
 const renderTaskElms = (taskArray) => {
@@ -48,9 +49,23 @@ const editTask = function() {
   console.log('edit task')
 };
 
-const deleteTask = function() {
-  console.log('delete task')
-  console.log($(this))
+const deleteTask = function(event) {
+  // console.log('event', event);
+  // console.log('delete task', $(this))
+  const taskElm = $(this).parents('.task');
+  console.log(taskElm.data());
+  console.log(taskElm.data('id'));
+  const options = {
+    method: 'DELETE',
+    url: `/tasks/${taskElm.data('id')}`,
+  };
+  $.ajax(options)
+    .done(function(res) {
+      taskElm.remove();
+    })
+    .fail(function(err) {
+      console.error('Failed to remove task from DB', err);
+    });
 };
 
 // == Document Ready ==
