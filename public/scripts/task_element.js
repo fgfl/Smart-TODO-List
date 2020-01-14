@@ -52,6 +52,23 @@ $(document).ready(function() {
     });
 
 
-  $('.task .fa-edit').click(editTask);
-  $('.task .fa-trash').click(deleteTask);
+
+  // edit button onClick event
+  // must use on('click') to select dynamically generated content. $.click() doesn't work
+  $('.task-list')
+    .on(
+      'click',
+      '.task .fa-edit',
+      // Add some data to pass to handler?,
+      editTask
+    );
+
+  // Delete button onClick event
+  $('.task-list')
+    .on(
+      'click',
+      '.task .fa-trash',
+      // Add some data to pass to handler?,
+      deleteTask
+    );
 });
