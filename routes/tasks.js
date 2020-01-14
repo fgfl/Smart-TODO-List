@@ -29,12 +29,12 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const queryString = `
       INSERT INTO tasks (
-        category_id, 
-        user_id, 
-        task_name, 
-        schedule_date, 
-        completed_date, 
-        priority, 
+        category_id,
+        user_id,
+        task_name,
+        schedule_date,
+        completed_date,
+        priority,
         details_url)
       VALUES (
         $1,
@@ -97,23 +97,30 @@ module.exports = (db) => {
     //         });
     //     });
   });
+
   router.delete("/:taskId", (req, res) => {
-    res.send(`${req.params.taskId}`);
-    //   db.query(`SELECT * FROM users;`)
-    //     .then(data => {
-    //       const users = data.rows;
-    //       console.log(users);
-    //       res.json({
-    //         users
-    //       });
-    //     })
-    //     .catch(err => {
-    //       res
-    //         .status(500)
-    //         .json({
-    //           error: err.message
-    //         });
-    //     });
+    const queryString = `
+      UPDATE tasks
+        SET is_active = false
+        WHERE user_id = $1
+        AND tasks.id = $2
+        RETURNING *;
+    `;
+    const queryParams = [
+      Number(req.session.user_id) || 1,
+      Number(req.params.taskId)
+    ];
+      db.query(queryString, queryParams)
+        .then(data => {
+          res.send(data);
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({
+              error: err.message
+            });
+        });
   });
   return router;
 };

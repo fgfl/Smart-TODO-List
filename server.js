@@ -10,6 +10,9 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
+const methodOverride = require('method-override');
+
+app.use(methodOverride('X-HTTP-Method-Override'));
 
 // PG database client/connection setup
 const {
@@ -64,7 +67,7 @@ app.use("/tasks", tasksRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+    res.render("index");
 });
 
 app.listen(PORT, () => {
