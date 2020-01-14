@@ -4,10 +4,22 @@
 
 .navbar {
   color: white;
-  background-color: #4A44F2;
+  background-color: #3726A6;
   justify-content: flex-start;
   align-items: center;
   height: 83px;
+}
+
+.navbar-nav.mr-auto {
+  margin-top: 50%;
+}
+
+.nav-link {
+  font-size: 1.2em;
+}
+
+.nav-link.small-font {
+  font-size: 16px;
 }
 
 .navbar>p {
@@ -30,6 +42,8 @@
   height: 100vh;
   width: 35vh;
   top: 82px;
+  background: rgb(74, 68, 242);
+  background: linear-gradient(0deg, rgba(74, 68, 242, 1) 0%, rgba(55, 38, 166, 1) 100%);
   -webkit-transition: left 0.3s ease;
   -o-transition: left 0.3s ease;
   -moz-transition: left 0.3s ease;
@@ -42,8 +56,15 @@
   width: 35vh;
   left: 0;
   top: 82px;
+  z-index: 1;
+  background: rgb(74, 68, 242);
+  background: linear-gradient(0deg, rgba(74, 68, 242, 1) 0%, rgba(55, 38, 166, 1) 100%);
   -webkit-transition: left 0.3s ease-in;
   -o-transition: left 0.3s ease-in;
   -moz-transition: left 0.3s ease-in;
   transition: left 0.3s ease-in;
+}
+
+hr {
+  border-top: 1px solid rgba(255, 255, 255, .75);
 }

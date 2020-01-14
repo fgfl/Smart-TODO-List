@@ -4,7 +4,7 @@
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 1031;
   /* Sit on top */
   left: 0;
   top: 0;
@@ -70,13 +70,18 @@ i.fas.fa-times.close {
   box-shadow: 10px 10px 20px -15px rgba(0, 0, 0, 0.75);
 }
 
+.nav-item i {
+  margin-right: 16px;
+}
+
 .fa-plus {
   color: white;
 
 }
 
-form label {
+.form-check-label {
   font-size: 20px;
+  margin-left: 8px;
 }
 
 .form-check {
@@ -86,4 +91,9 @@ form label {
 .form-check-input {
   width: 20px;
   height: 20px;
+}
+
+#ui-datepicker-div {
+  z-index: 1032 !important;
+  font-family: 'Cabin', sans-serif;
 }

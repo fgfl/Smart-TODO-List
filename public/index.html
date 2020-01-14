@@ -5,6 +5,7 @@
 <head>
   <!-- Meta Information -->
   <title>Smart TODO - Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -27,22 +28,13 @@
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
-  <!-- Font Awesome-->
-  <script src="https://kit.fontawesome.com/afa696a2f8.js" crossorigin="anonymous"></script>
-
-  <!-- moment.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/app.js"></script>
-
-  <!-- Mobile initial scale set to 1-->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
       <img src="https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/planning/mockups/smart-todo-logo.png" />
     </a>
@@ -56,27 +48,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link active" href="#">
             <i class="far fa-check-circle"></i>All <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link active" href="#">
             <i class="fas fa-film"></i>Watch
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link active" href="#" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-utensils"></i>Eat
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link active" href="#">
             <i class="fas fa-book-open"></i>Read
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link active" href="#">
             <i class="fas fa-cart-arrow-down"></i>Buy
           </a>
         </li>
@@ -86,10 +78,10 @@
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-tem active">
-          <a class="nav-link" href="#">Completed</a>
+          <a class="nav-link small-font" href="#">Completed</a>
         </li>
         <li class="nav-tem active">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link small-font" href="#">Logout</a>
         </li>
       </ul>
     </div>
@@ -110,7 +102,7 @@
           <form>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">&nbsp;&nbsp;Completed</label>
+              <label class="form-check-label" for="exampleCheck1">Completed</label>
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput">Title</label>
@@ -150,17 +142,29 @@
     </section>
   </main>
 
+  <!-- Font Awesome-->
+  <script src="https://kit.fontawesome.com/afa696a2f8.js" crossorigin="anonymous"></script>
+
+  <!-- jQuery -->
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
+
+  <!-- Bootstrap -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
 
-  <script type="text/javascript" src="/scripts/modal.js"></script>
+  <!-- moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+  <!-- datePicker -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js">
   </script>
+
+  <!-- Modal -->
+  <script type="text/javascript" src="/scripts/modal.js"></script>
 </body>
 
 
