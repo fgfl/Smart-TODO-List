@@ -127,17 +127,17 @@ module.exports = (db) => {
       Number(req.session.user_id) || 1,
       Number(req.params.taskId)
     ];
-      db.query(queryString, queryParams)
-        .then(data => {
-          res.send(data);
-        })
-        .catch(err => {
-          res
-            .status(500)
-            .json({
-              error: err.message
-            });
-        });
+    db.query(queryString, queryParams)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({
+            error: err.message
+          });
+      });
   });
   return router;
 };
