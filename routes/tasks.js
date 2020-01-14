@@ -11,11 +11,9 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(data => {
-        const users = data.rows;
-        console.log(users);
-        res.json({
-          users
-        });
+        const tasks = data.rows;
+        console.log(tasks);
+        res.send(tasks);
       })
       .catch(err => {
         res

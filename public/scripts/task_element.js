@@ -3,14 +3,14 @@ const createTaskElement = (task) => {
     <article class="task container">
       <div class="row align-items-center">
         <i class="fas fa-film col col-1"></i>
-        <h3 class="task-name col col-8">${task.taskName || 'default todo'}</h3>
+        <h3 class="task-name col col-8">${task.task_name || 'default todo'}</h3>
         <i class="far fa-flag col col-1"></i>
         <i class="fas fa-edit col col-1"></i>
         <i class="fas fa-trash col col-1"></i>
       </div>
       <div class="row align-items-center">
         <div class="col col-1"></div>
-        <p class="created-at col col-8">${task.scheduledDate || 'default time'}</p>
+        <p class="created-at col col-8">${task.scheduled_date || 'default time'}</p>
         <div class="col col-1"></div>
         <div class="col col-1"></div>
         <div class="col col-1"></div>
@@ -42,18 +42,15 @@ const deleteTask = function() {
 
 // == Document Ready ==
 $(document).ready(function() {
-  $.get("/tasks")
+  $.get('/tasks')
     .then((tasks) => {
+      console.log(tasks)
       renderTaskElms(tasks);
     })
     .fail((err) => {
       console.error('failed to get tasks', err.stack)
     });
-  renderTaskElms([
-    {},
-    {},
-    {},
-  ]);
+
 
   $('.task .fa-edit').click(editTask);
   $('.task .fa-trash').click(deleteTask);
