@@ -70,14 +70,13 @@ const deleteTask = function(event) {
 
 const editTask = function() {
   const taskElm = $(this).parents('.task');
-  console.log('this is some text', taskElm);
-  console.log(taskElm.data());
-  console.log(taskElm.data('id'));
-  const title = taskElm.data('task_name');
+  const taskData = taskElm.data();
   $('#myModal').on('show.bs.modal', function(event) {
     const modal = $(this);
-    console.log('event call');
-    modal.find('#title').val(title);
+    modal.find('#checkbox').prop('checked', (taskData.completed_at));
+    modal.find('#title').val(taskData.task_name);
+    modal.find('#category').val(taskData.category_name);
+    modal.off('show.bs.modal');
   });
   $("#newTask").click();
 };
