@@ -1,0 +1,49 @@
+.navbar-brand>img {
+  height: 45px;
+}
+
+.navbar {
+  color: white;
+  background-color: #4A44F2;
+  justify-content: flex-start;
+  align-items: center;
+  height: 83px;
+}
+
+.navbar>p {
+  margin-left: auto;
+}
+
+
+.navbar-collapse {
+  background-color: #4A44F2;
+  position: absolute;
+  top: 54px;
+  left: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.navbar-collapse.collapsing {
+  height: 100vh;
+  width: 35vh;
+  top: 82px;
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+  left: -100%;
+}
+
+.navbar-collapse.show {
+  height: 100vh;
+  width: 35vh;
+  left: 0;
+  top: 82px;
+  -webkit-transition: left 0.3s ease-in;
+  -o-transition: left 0.3s ease-in;
+  -moz-transition: left 0.3s ease-in;
+  transition: left 0.3s ease-in;
+}
