@@ -19,6 +19,7 @@ module.exports = (db) => {
         FROM tasks
           JOIN categories ON categories.id = category_id
         WHERE user_id = $1
+          AND is_active = TRUE
         ORDER BY created_date;
     `;
     const queryParams = [req.session.user_id];
