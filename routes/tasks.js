@@ -3,10 +3,24 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const queryString = `SELECT * FROM tasks
-      JOIN categories ON categories.id = category_id
-    WHERE user_id = $1
-    ORDER BY created_date;`;
+    const queryString = `
+      SELECT
+          tasks.id,
+          category_id,
+          category_name,
+          user_id,
+          task_name,
+          created_date,
+          schedule_date,
+          completed_date,
+          priority,
+          details_url,
+          is_active
+        FROM tasks
+          JOIN categories ON categories.id = category_id
+        WHERE user_id = $1
+        ORDER BY created_date;
+    `;
     const queryParams = [req.session.user_id];
 
     db.query(queryString, queryParams)

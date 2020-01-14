@@ -33,10 +33,7 @@ const createTaskElement = (task) => {
 const renderTaskElm = (task) => {
   const taskList = $('.task-list');
   taskList.append(createTaskElement(task));
-
-  const newElm = taskList.children('.task:last-child')
-
-  console.log('newelem\n', newElm);
+  taskList.children('.task:last-child').data(task);
 };
 
 const renderTaskElms = (taskArray) => {
