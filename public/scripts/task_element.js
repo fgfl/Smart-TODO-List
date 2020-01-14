@@ -32,16 +32,13 @@ const createTaskElement = (task) => {
 
 const renderTaskElm = (task) => {
   const taskList = $('.task-list');
-  taskList.append(createTaskElement(task)); <<
-  << << < Updated upstream
+  taskList.append(createTaskElement(task));
   taskList.children('.task:last-child').data(task);
-  console.log(taskList.children('.task:last-child').data()); ===
-  === =
+  console.log(taskList.children('.task:last-child').data());
 
   const newElm = taskList.children('.task:last-child');
 
-  console.log('newelem\n', newElm); >>>
-  >>> > Stashed changes
+  console.log('newelem\n', newElm);
 };
 
 const renderTaskElms = (taskArray) => {
@@ -52,87 +49,68 @@ const renderTaskElms = (taskArray) => {
 };
 
 // == Async functions ==
-const deleteTask = function() {
-  console.log('delete task');
-  console.log($(this));
+const deleteTask = function(event) {
+  // console.log('event', event);
+  // console.log('delete task', $(this))
+  const taskElm = $(this).parents('.task');
+  console.log(taskElm.data());
+  console.log(taskElm.data('id'));
+  const options = {
+    method: 'DELETE',
+    url: `/tasks/${taskElm.data('id')}`,
+  };
+  $.ajax(options)
+    .done(function(res) {
+      taskElm.remove();
+    })
+    .fail(function(err) {
+      console.error('Failed to remove task from DB', err);
+    });
 };
 
-const deleteTask = function(event) {
-    // console.log('event', event);
-    // console.log('delete task', $(this))
-    const taskElm = $(this).parents('.task');
-    console.log(taskElm.data());
-    console.log(taskElm.data('id'));
-    const options = {
-      method: 'DELETE',
-      url: `/tasks/${taskElm.data('id')}`,
-    };
-    $.ajax(options)
-      .done(function(res) {
-        taskElm.remove();
-      })
-      .fail(function(err) {
-        console.error('Failed to remove task from DB', err);
-      });
+const editTask = function() {
+  const taskElm = $(this).parents('.task');
+  console.log('this is some text', taskElm);
+  console.log(taskElm.data());
+  console.log(taskElm.data('id'));
+  const title = taskElm.data('task_name');
+  $('#myModal').on('show.bs.modal', function(event) {
+    const modal = $(this);
+    console.log('event call');
+    modal.find('#title').val(title);
+  });
+  $("#newTask").click();
+};
 
-    const editTask = function() {
-      $("#newTask").click();
-      const taskElm = $(this).parents('.task');
-      console.log('this is some text', taskElm);
-      console.log(taskElm.data());
-      console.log(taskElm.data('id'));
-      $('#myModal').on('show.bs.modal', function(event) {
-        const options = {
-          method: 'DELETE',
-          url: `/tasks/${taskElm.data('id')}`,
-        };
-        // $.ajax(options)
-        //   .done(function(res) {
-        //     taskElm.remove();
-        //   })
-        //   .fail(function(err) {
-        //     console.error('Failed to remove task from DB', err);
-        // });
-
-        const button = $(event.relatedTarget); // Button that triggered the modal
-        const recipient = button.data('whatever'); // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find('.modal-body input').val(recipient);
-      });
-    };
-
-    // == Document Ready ==
-    $(document).ready(function() {
-      $.get('/tasks')
-        .then((tasks) => {
-          console.log(tasks);
-          renderTaskElms(tasks);
-        })
-        .fail((err) => {
-          console.error('failed to get tasks', err.stack);
-        });
-
-
-
-      // edit button onClick event
-      // must use on('click') to select dynamically generated content. $.click() doesn't work
-      $('.task-list')
-        .on(
-          'click',
-          '.task .fa-edit',
-          // Add some data to pass to handler?,
-          editTask
-        );
-
-      // Delete button onClick event
-      $('.task-list')
-        .on(
-          'click',
-          '.task .fa-trash',
-          // Add some data to pass to handler?,
-          deleteTask
-        );
+// == Document Ready ==
+$(document).ready(function() {
+  $.get('/tasks')
+    .then((tasks) => {
+      console.log(tasks);
+      renderTaskElms(tasks);
+    })
+    .fail((err) => {
+      console.error('failed to get tasks', err.stack);
     });
+
+
+
+  // edit button onClick event
+  // must use on('click') to select dynamically generated content. $.click() doesn't work
+  $('.task-list')
+    .on(
+      'click',
+      '.task .fa-edit',
+      // Add some data to pass to handler?,
+      editTask
+    );
+
+  // Delete button onClick event
+  $('.task-list')
+    .on(
+      'click',
+      '.task .fa-trash',
+      // Add some data to pass to handler?,
+      deleteTask
+    );
+});
