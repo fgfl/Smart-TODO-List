@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/layout.css" />
 
   <!-- External Google Fonts Bungee/Source Sans Pro-->
   <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,400,400i,700&display=swap"
     rel="stylesheet">
 
   <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -36,9 +36,65 @@
 </head>
 
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">
+      <img src="https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/planning/mockups/smart-todo-logo.png" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <p>Hello, user name</p>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="far fa-check-circle"></i>All <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-film"></i>Watch
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-utensils"></i>Eat
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-book-open"></i>Read
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-cart-arrow-down"></i>Buy
+          </a>
+        </li>
+      </ul>
+
+      <hr>
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-tem active">
+          <a class="nav-link" href="#">Completed</a>
+        </li>
+        <li class="nav-tem active">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <main>
-    <h1>Hello, World!</h1>
+    <h1>My Tasks</h1>
+
   </main>
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
@@ -49,5 +105,6 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
 </body>
+
 
 </html>
