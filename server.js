@@ -10,6 +10,9 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
+const methodOverride = require('method-override');
+
+app.use(methodOverride('X-HTTP-Method-Override'));
 
 // PG database client/connection setup
 const {

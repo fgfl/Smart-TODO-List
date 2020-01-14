@@ -47,7 +47,6 @@ module.exports = (db) => {
       )
       RETURNING *;
     `;
-    console.log('lkajsdlfjlsdjkf', req.body);
     const queryParams = [
       Number(req.body.category_id),
       Number(req.session.user_id || 3),
@@ -57,11 +56,6 @@ module.exports = (db) => {
       req.body.priority ? req.body.priority : null,
       req.body.details_url ? req.body.details_url : null
     ];
-
-    // console.log(req.query, 'casting', Number(req.query.category_id),
-    //   Number(req.query.user_id),
-    //   req.query.priority);
-    console.log(queryParams);
 
     db.query(queryString, queryParams)
       .then(data => {
@@ -80,22 +74,45 @@ module.exports = (db) => {
       });
   });
   router.put("/:taskId", (req, res) => {
-    res.send(`${req.params.taskId}`);
-    //   db.query(`SELECT * FROM users;`)
-    //     .then(data => {
-    //       const users = data.rows;
-    //       console.log(users);
-    //       res.json({
-    //         users
-    //       });
-    //     })
-    //     .catch(err => {
-    //       res
-    //         .status(500)
-    //         .json({
-    //           error: err.message
-    //         });
-    //     });
+    const queryString = `
+      UPDATE tasks
+        SET
+          category_id = $1, 
+          user_id = $2, 
+          task_name = $3, 
+          schedule_date = $4, 
+          completed_date = $5, 
+          priority = $6, 
+          details_url = $7
+        WHERE id = $8
+        RETURNING *;
+    `;
+    const queryParams = [
+      Number(req.body.category_id),
+      Number(req.session.user_id || 3),
+      req.body.task_name,
+      req.body.scheduled_date ? req.body.scheduled_date : null,
+      req.body.completed_date ? req.body.completed_date : null,
+      req.body.priority ? req.body.priority : null,
+      req.body.details_url ? req.body.details_url : null,
+      req.params.taskId
+    ];
+
+    db.query(queryString, queryParams)
+      .then(data => {
+        const users = data.rows;
+        console.log(users);
+        res.json({
+          users
+        });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({
+            error: err.message
+          });
+      });
   });
   router.delete("/:taskId", (req, res) => {
     res.send(`${req.params.taskId}`);
