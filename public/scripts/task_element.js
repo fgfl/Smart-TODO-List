@@ -101,4 +101,12 @@ $(document).ready(function() {
       // Add some data to pass to handler?,
       deleteTask
     );
+  // Clear modal form on click close modal button  
+  $('#myModal').on('hidden.bs.modal', function(e) {
+    const modal = $(this);
+    modal.find('#checkbox').prop('checked', false);
+    modal.find('#title').val('');
+    modal.find('#category').val('');
+
+  });
 });
