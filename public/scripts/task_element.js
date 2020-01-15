@@ -34,7 +34,6 @@ const renderTaskElm = (task) => {
   const taskList = $('.task-list');
   taskList.append(createTaskElement(task));
   taskList.children('.task:last-child').data(task);
-  console.log($('.task'))
 };
 
 const renderTaskElms = (taskArray) => {
@@ -64,7 +63,6 @@ const deleteTask = function(event) {
 const editTask = function() {
   const taskElm = $(this).parents('.task');
   const taskData = taskElm.data();
-  console.log('getting modal info', taskData, taskElm)
   $('#myModal').on('show.bs.modal', function(event) {
     const modal = $(this);
     modal.find('#checkbox').prop('checked', (taskData.completed_at));
