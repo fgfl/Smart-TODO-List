@@ -43,8 +43,6 @@ const createUpdateTasks = function(e) {
     options.url += `/${taskId}`;
     options.id = taskId;
   }
-  // Need to removed attached data for next call
-  $('#myModal').removeData('taskId');
 
   $.ajax(options)
     .done(function(res) {

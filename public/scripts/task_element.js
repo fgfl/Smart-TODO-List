@@ -114,5 +114,7 @@ $(document).ready(function() {
     modal.find('#title').val('');
     modal.find('#category').val('');
 
+    // Need to removed attached data for next call
+    $('#myModal').removeData('taskId');
   });
 });
