@@ -3,10 +3,14 @@ require('dotenv').config();
 
 const request = require('request-promise');
 
-const {JSDOM} = require('jsdom');
-const {window} = new JSDOM(`...`);
+const {
+  JSDOM
+} = require('jsdom');
+const {
+  window
+} = new JSDOM(`...`);
 
-var $ = require("jquery")(window);
+const $ = require("jquery")(window);
 
 const fetchCategory = (text) => {
   const username = 'Frederick';
