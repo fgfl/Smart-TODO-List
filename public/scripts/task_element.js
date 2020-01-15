@@ -68,6 +68,8 @@ const editTask = function() {
     modal.find('#category').val(taskData.category_name);
     modal.off('show.bs.modal');
   });
+
+  $('#myModal').data('taskId', taskData.id); // Attach task id if we are editing
   $("#newTask").click();
 };
 
@@ -101,7 +103,7 @@ $(document).ready(function() {
       // Add some data to pass to handler?,
       deleteTask
     );
-  // Clear modal form on click close modal button  
+  // Clear modal form on click close modal button
   $('#myModal').on('hidden.bs.modal', function(e) {
     const modal = $(this);
     modal.find('#checkbox').prop('checked', false);

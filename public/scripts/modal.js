@@ -29,11 +29,19 @@ const createUpdateTasks = function(e) {
     data: $.param(data)
   };
 
+  const taskId = $(this).parents('#myModal').data('taskId');
+  if (taskId) {
+    options.method = 'PUT';
+    options.url = `/task/${taskId}`;
+  }
+  // Need to removed attached data for next call
+  $('#myModal').removeData('taskId');
+
   $.ajax(options)
     .done(function(res) {
       renderTaskElm(res);
-      $('#myModal').modal('toggle'); //or  $('#myModal').modal('hide');
-    })
+      $('#myModal').modal('hide');
+   })
     .fail(function(err) {
       console.error('Failed to submit form', err);
     });
