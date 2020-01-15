@@ -3,8 +3,9 @@ $('.datepicker').datepicker({
   startDate: '-3d'
 });
 
-const replaceTask = (task) => {
-  console.log('Im in replace task');
+const replaceTask = (taskToReplace, newTask) => {
+  taskToReplace.replaceWith(createTaskElement(newTask));
+  taskToReplace.data(newTask);
 };
 
 
@@ -44,8 +45,17 @@ const createUpdateTasks = function(e) {
 
   $.ajax(options)
     .done(function(res) {
-      console.log(res);
-      renderTaskElm(res);
+      console.log('res', res.id);
+      console.log($(this));
+      const taskToReplace = $('.task-list').filter(function(taskElm) {
+        return taskElm.data('id') === res.id;
+      });
+      console.log(taskToReplace);
+      if (taskToReplace) {
+        replaceTask(taskToReplace, res);
+      } else {
+        renderTaskElm(res);
+      }
       $('#myModal').modal('hide');
     })
     .fail(function(err) {
