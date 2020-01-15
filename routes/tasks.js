@@ -125,7 +125,7 @@ module.exports = (db) => {
             });
         });
     } else {
-      insertTask();
+      insertTask(req, res);
     }
   });
 
