@@ -42,6 +42,8 @@ const renderTaskElms = (taskArray) => {
   }
 };
 
+
+
 // == Async functions ==
 const deleteTask = function(event) {
   const taskElm = $(this).parents('.task');

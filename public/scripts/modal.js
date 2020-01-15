@@ -1,8 +1,12 @@
-
 $('.datepicker').datepicker({
   format: 'mm/dd/yyyy',
   startDate: '-3d'
 });
+
+const replaceTask = (task) => {
+  console.log('Im in replace task');
+};
+
 
 const createUpdateTasks = function(e) {
   e.preventDefault();
@@ -40,10 +44,10 @@ const createUpdateTasks = function(e) {
 
   $.ajax(options)
     .done(function(res) {
-      console.log(res)
+      console.log(res);
       renderTaskElm(res);
       $('#myModal').modal('hide');
-   })
+    })
     .fail(function(err) {
       console.error('Failed to submit form', err);
     });
@@ -51,6 +55,5 @@ const createUpdateTasks = function(e) {
 
 // == DOCUMENT READY ==
 $(document).ready(function() {
-
   $('form').on('submit', createUpdateTasks);
 });
