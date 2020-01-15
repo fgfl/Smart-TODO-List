@@ -3,11 +3,12 @@ const router = express.Router();
 const {
   fetchCategory
 } = require('./help_files/get_category');
+const {queryCategoryFromName} = require('./help_files/query_category_from_name');
 
 module.exports = (db) => {
-  const insertTask = function(req, res, catName) {
+  const insertTask = function(req, res, catId) {
     const queryParams = [
-      catName ? 2 : Number(req.body.category_id),
+      catId ? catId : Number(req.body.category_id),
       Number(req.session.user_id),
       req.body.task_name,
       req.body.scheduled_date ? req.body.scheduled_date : null,
@@ -95,14 +96,26 @@ module.exports = (db) => {
         .then(probability => {
           const items = probability.classification;
           let highest = 0;
-          let catName = "buy";
+          let catName = "buy"; // default to buy/products categories
+          console.log('fetched:', probability, 'items:', items)
           for (const item in items) {
-            if (items.item > highest) {
-              highest = items.item;
+            console.log('get highest prob')
+            console.log(item,':', items[item])
+            if (items[item] > highest) {
+              highest = items[item];
               catName = item;
             }
+            console.log(catName)
           }
-          insertTask(req, res, catName);
+          console.log('in post', probability)
+          queryCategoryFromName(db, catName)
+            .then(catId => {
+              console.log(catId);
+              insertTask(req, res, catId.id);
+            })
+            .catch((err) => {
+              console.error("Failed query to get category name", err.message);
+            });
         })
         .catch(err => {
           res
