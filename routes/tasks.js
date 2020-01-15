@@ -1,7 +1,58 @@
 const express = require('express');
 const router = express.Router();
+const {
+  fetchCategory
+} = require('./help_files/get_category');
 
 module.exports = (db) => {
+  const insertTask = function(req, res, catName) {
+    const queryParams = [
+      catName ? 2 : Number(req.body.category_id),
+      Number(req.session.user_id),
+      req.body.task_name,
+      req.body.scheduled_date ? req.body.scheduled_date : null,
+      req.body.completed_date ? req.body.completed_date : null,
+      req.body.priority ? req.body.priority : null,
+      req.body.details_url ? req.body.details_url : null
+    ];
+
+    const queryString = `
+        INSERT INTO tasks (
+          category_id,
+          user_id,
+          task_name,
+          schedule_date,
+          completed_date,
+          priority,
+          details_url)
+        VALUES (
+          $1,
+          $2,
+          $3,
+          $4,
+          $5,
+          $6,
+          $7
+        )
+        RETURNING *;
+      `;
+
+    db.query(queryString, queryParams)
+      .then(data => {
+        const task = data.rows[0];
+        res.send(task);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({
+            error: err.message
+          });
+      });
+  };
+
+
+
   router.get("/", (req, res) => {
     const queryString = `
       SELECT
@@ -39,51 +90,34 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    const queryString = `
-      INSERT INTO tasks (
-        category_id,
-        user_id,
-        task_name,
-        schedule_date,
-        completed_date,
-        priority,
-        details_url)
-      VALUES (
-        $1,
-        $2,
-        $3,
-        $4,
-        $5,
-        $6,
-        $7
-      )
-      RETURNING *;
-    `;
-    const queryParams = [
-      Number(req.body.category_id),
-      Number(req.session.user_id),
-      req.body.task_name,
-      req.body.scheduled_date ? req.body.scheduled_date : null,
-      req.body.completed_date ? req.body.completed_date : null,
-      req.body.priority ? req.body.priority : null,
-      req.body.details_url ? req.body.details_url : null
-    ];
-
-    console.log(req.body)
-    console.log(queryParams)
-    db.query(queryString, queryParams)
-      .then(data => {
-        const task = data.rows[0];
-        res.send(task);
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({
-            error: err.message
-          });
-      });
+    if (!req.body.category_id) {
+      fetchCategory(req.body.task_name)
+        .then(probability => {
+          const items = probability.classification;
+          let highest = 0;
+          let catName = "buy";
+          for (const item in items) {
+            if (items.item > highest) {
+              highest = items.item;
+              catName = item;
+            }
+          }
+          insertTask(req, res, catName);
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({
+              error: err.message
+            });
+        });
+    } else {
+      insertTask();
+    }
   });
+
+
+
   router.put("/:taskId", (req, res) => {
     const queryString = `
       UPDATE tasks

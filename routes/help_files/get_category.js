@@ -1,16 +1,8 @@
 // load .env data into process.env
-require('dotenv').config();
+// require('dotenv').config();
 
 const request = require('request-promise');
 
-const {
-  JSDOM
-} = require('jsdom');
-const {
-  window
-} = new JSDOM(`...`);
-
-const $ = require("jquery")(window);
 
 const fetchCategory = (text) => {
   const username = 'Frederick';
@@ -29,12 +21,19 @@ const fetchCategory = (text) => {
     'json': true,
   };
 
-  request(options)
+  return request(options)
     .then((res) => {
-      console.log(JSON.stringify(res));
-    })
-    .catch((err) => {
-      console.error('request call failed.', err);
+      console.log(JSON.stringify(res[0]));
+
+      let result = {};
+      result.classification = {};
+      result['textCoverage'] = res[0]['textCoverage'];
+      for (const category of res[0]['classification']) {
+        result.classification[category.className] = category.p;
+      }
+
+      console.log(result);
+      return result;
     });
 
   // ----- meaning cloud stuff -----
