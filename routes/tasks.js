@@ -3,7 +3,9 @@ const router = express.Router();
 const {
   fetchCategory
 } = require('./help_files/get_category');
-const {queryCategoryFromName} = require('./help_files/query_category_from_name');
+const {
+  queryCategoryFromName
+} = require('./help_files/query_category_from_name');
 
 module.exports = (db) => {
   const insertTask = function(req, res, catId) {
@@ -100,7 +102,7 @@ module.exports = (db) => {
           console.log('fetched:', probability, 'items:', items)
           for (const item in items) {
             console.log('get highest prob')
-            console.log(item,':', items[item])
+            console.log(item, ':', items[item])
             if (items[item] > highest) {
               highest = items[item];
               catName = item;
