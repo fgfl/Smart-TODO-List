@@ -6,7 +6,7 @@ const request = require('request-promise');
 
 const fetchCategory = (text) => {
   const username = 'Frederick';
-  const classifierName = 'TEST';
+  const classifierName = 'LHL_midterm_classifier';
 
   const options = {
     'method': 'POST',
