@@ -32,13 +32,15 @@ const createUpdateTasks = function(e) {
   const taskId = $(this).parents('#myModal').data('taskId');
   if (taskId) {
     options.method = 'PUT';
-    options.url = `/task/${taskId}`;
+    options.url += `/${taskId}`;
+    options.id = taskId;
   }
   // Need to removed attached data for next call
   $('#myModal').removeData('taskId');
 
   $.ajax(options)
     .done(function(res) {
+      console.log(res)
       renderTaskElm(res);
       $('#myModal').modal('hide');
    })
