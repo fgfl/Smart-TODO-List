@@ -4,8 +4,11 @@ $('.datepicker').datepicker({
 });
 
 const replaceTask = (taskToReplace, newTask) => {
-  taskToReplace.replaceWith(createTaskElement(newTask));
-  taskToReplace.data(newTask);
+  // $(newElement).data(newTask);
+  const newElm = $(newElemecreateTaskElement(newTask)).replaceAll(taskToReplace);
+  newElm.data(newTask);
+  // console.log('new task', newElement);
+  // console.log(newElement, newElement.data())
 };
 
 
@@ -46,13 +49,14 @@ const createUpdateTasks = function(e) {
   $.ajax(options)
     .done(function(res) {
       console.log('res', res.id);
-      console.log($(this));
-      const taskToReplace = $('.task-list').filter(function(taskElm) {
-        return taskElm.data('id') === res.id;
-      });
-      console.log(taskToReplace);
+      const tasksArray = [...$('.task-list').children('.task')];
+      console.log(tasksArray)
+      const taskToReplace = tasksArray.filter(function(taskElm) {
+        return $(taskElm).data('id') === res.id;
+      })[0];
+      console.log('task to replace:', taskToReplace);
       if (taskToReplace) {
-        replaceTask(taskToReplace, res);
+        replaceTask($(taskToReplace), res);
       } else {
         renderTaskElm(res);
       }
