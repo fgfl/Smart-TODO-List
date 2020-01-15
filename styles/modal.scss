@@ -20,6 +20,10 @@
   /* Black w/ opacity */
 }
 
+.modal-backdrop {
+  z-index: 0;
+}
+
 /* Modal Content/Box */
 .modal-content {
   display: flex;

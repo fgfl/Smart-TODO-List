@@ -49,7 +49,7 @@ module.exports = (db) => {
         priority,
         details_url)
       VALUES (
-        $1,
+        SELECT id FROM categories WHERE category_name = $1,
         $2,
         $3,
         $4,
@@ -60,8 +60,8 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const queryParams = [
-      Number(req.body.category_id),
-      Number(req.session.user_id || 3),
+      req.body.category_name,
+      Number(req.session.user_id),
       req.body.task_name,
       req.body.scheduled_date ? req.body.scheduled_date : null,
       req.body.completed_date ? req.body.completed_date : null,
@@ -69,10 +69,11 @@ module.exports = (db) => {
       req.body.details_url ? req.body.details_url : null
     ];
 
+    console.log(req.body)
     db.query(queryString, queryParams)
       .then(data => {
-        const users = data.rows;
-        return users;
+        const task = data.rows[0];
+        return task;
       })
       .catch(err => {
         res
