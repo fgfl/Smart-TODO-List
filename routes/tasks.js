@@ -142,7 +142,8 @@ module.exports = (db) => {
           completed_date = $5,
           priority = $6,
           details_url = $7
-        WHERE id = $8
+        FROM categories
+        WHERE tasks.id = $8 AND category_id = categories.id
         RETURNING *;
     `;
     const queryParams = [
