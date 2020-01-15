@@ -69,4 +69,6 @@ const fetchCategory = (text) => {
 
 };
 
-fetchCategory("Harry Potter");
+module.exports = {
+  fetchCategory
+};
