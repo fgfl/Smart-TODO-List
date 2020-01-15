@@ -8,22 +8,27 @@ const createUpdateTasks = function(e) {
   e.preventDefault();
 
   const categoryNameMapping = {
-
+    'buy': 1,
+    'eat': 2,
+    'read': 3,
+    'watch': 4
   }
-  const options = {
-    method: 'POST',
-    url: `/tasks`,
-    data: {
-      category_name: $(this).find('#category').val(),
+  const data = {
+      category_id: categoryNameMapping[$(this).find('#category').val()],
       task_name: $(this).find('#title').val(),
       schdule_date: null,
       completed_date: $(this).find('#checkbox').prop('checked') ? null : null,
       priority: null,
       details_url: null,
-    },
+    };
+
+  const options = {
+    method: 'POST',
+    url: `/tasks`,
+    data: $.param(data)
   };
 
-  console.log($(this))
+  console.log($.param(data));
   console.log($(this).serialize())
   console.log($(this).find('#checkbox').prop('checked'));
 
