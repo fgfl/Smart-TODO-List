@@ -13,14 +13,14 @@ const createTaskElement = (task) => {
     <article class="task container">
       <div class="row align-items-center">
         <i class="fas ${categoryIcon} col col-1"></i>
-        <h3 class="task-name col col-8">${task.task_name || 'default todo'}</h3>
+        <h3 class="task-name col col-8">${task.task_name}</h3>
         <i class="far fa-flag col col-1"></i>
         <i class="fas fa-edit col col-1"></i>
         <i class="fas fa-trash col col-1"></i>
       </div>
       <div class="row align-items-center">
         <div class="col col-1"></div>
-        <p class="created-at col col-8">${task.scheduled_date || 'default time'}</p>
+        <p class="created-at col col-8">${task.scheduled_date}</p>
         <div class="col col-1"></div>
         <div class="col col-1"></div>
         <div class="col col-1"></div>
@@ -45,8 +45,6 @@ const renderTaskElms = (taskArray) => {
 // == Async functions ==
 const deleteTask = function(event) {
   const taskElm = $(this).parents('.task');
-  console.log(taskElm.data());
-  console.log(taskElm.data('id'));
   const options = {
     method: 'DELETE',
     url: `/tasks/${taskElm.data('id')}`,

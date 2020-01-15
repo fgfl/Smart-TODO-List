@@ -60,7 +60,7 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const queryParams = [
-      req.body.category_id,
+      Number(req.body.category_id),
       Number(req.session.user_id),
       req.body.task_name,
       req.body.scheduled_date ? req.body.scheduled_date : null,
@@ -74,7 +74,7 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(data => {
         const task = data.rows[0];
-        return task;
+        res.send(task);
       })
       .catch(err => {
         res

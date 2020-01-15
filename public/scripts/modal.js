@@ -1,8 +1,8 @@
+
 $('.datepicker').datepicker({
   format: 'mm/dd/yyyy',
   startDate: '-3d'
 });
-
 
 const createUpdateTasks = function(e) {
   e.preventDefault();
@@ -12,15 +12,16 @@ const createUpdateTasks = function(e) {
     'eat': 2,
     'read': 3,
     'watch': 4
-  }
+  };
+
   const data = {
-      category_id: categoryNameMapping[$(this).find('#category').val()],
-      task_name: $(this).find('#title').val(),
-      schdule_date: null,
-      completed_date: $(this).find('#checkbox').prop('checked') ? null : null,
-      priority: null,
-      details_url: null,
-    };
+    category_id: categoryNameMapping[$(this).find('#category').val()],
+    task_name: $(this).find('#title').val(),
+    schdule_date: null,
+    completed_date: $(this).find('#checkbox').prop('checked') ? null : null,
+    priority: null,
+    details_url: null,
+  };
 
   const options = {
     method: 'POST',
@@ -28,14 +29,10 @@ const createUpdateTasks = function(e) {
     data: $.param(data)
   };
 
-  console.log($.param(data));
-  console.log($(this).serialize())
-  console.log($(this).find('#checkbox').prop('checked'));
-
-  console.log($(this).find('#category').val())
   $.ajax(options)
     .done(function(res) {
-
+      renderTaskElm(res);
+      $('#myModal').modal('toggle'); //or  $('#myModal').modal('hide');
     })
     .fail(function(err) {
       console.error('Failed to submit form', err);
