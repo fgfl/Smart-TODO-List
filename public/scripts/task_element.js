@@ -10,20 +10,21 @@ const createTaskElement = (task) => {
 
   // Using Bootstrap's gridding system
   const taskElm = `
-    <article class="task container">
-      <div class="row align-items-center">
-        <i class="fas ${categoryIcon} col col-1"></i>
-        <h3 class="task-name col col-8">${task.task_name}</h3>
-        <i class="far fa-flag col col-1"></i>
-        <i class="fas fa-edit col col-1"></i>
-        <i class="fas fa-trash col col-1"></i>
-      </div>
-      <div class="row align-items-center">
-        <div class="col col-1"></div>
-        <p class="created-at col col-8">${task.scheduled_date}</p>
-        <div class="col col-1"></div>
-        <div class="col col-1"></div>
-        <div class="col col-1"></div>
+    <article class="task">
+      <div class="container">
+        <div class="row">
+          <div class="col col-2">
+            <i class="fas ${categoryIcon} fa-2x"></i>
+          </div>
+          <div class="col col-7">
+            <h3 class="task-name">${task.task_name}</h3>
+          </div>
+          <div class="col col-3 task-icons" style="text-align:center">
+            <i class="far fa-flag"></i>
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash"></i>
+          </div>
+        </div>
       </div>
     </article>
   `;

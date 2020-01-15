@@ -1,6 +1,7 @@
 .task-list {
   display: flex;
   flex-direction: column;
+  margin-bottom: 125px;
 
   .task {
     height: 10%;
@@ -12,5 +13,28 @@
     }
   }
 
+  .row {
+    padding: 1em;
+  }
+
+  .container.fas {
+    padding: 0.5em;
+  }
+
+  .task-icons {
+    text-align: center
+  }
+
+  .task-icons i {
+    padding: 0.25em;
+  }
+
+  .task-name {
+    font-size: 1.5em;
+  }
+
+  .col {
+    padding: 0;
+  }
 
 }
