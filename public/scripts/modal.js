@@ -5,7 +5,7 @@ $('.datepicker').datepicker({
 
 const replaceTask = (taskToReplace, newTask) => {
   // $(newElement).data(newTask);
-  const newElm = $(newElemecreateTaskElement(newTask)).replaceAll(taskToReplace);
+  const newElm = $(createTaskElement(newTask)).replaceAll(taskToReplace);
   newElm.data(newTask);
   // console.log('new task', newElement);
   // console.log(newElement, newElement.data())
