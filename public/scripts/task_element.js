@@ -15,8 +15,8 @@ const createTaskElement = (task) => {
         <div class="row">
           <div class="col col-2">
             <i class="fas ${categoryIcon} fa-2x"></i>
-          </div>     
-          
+          </div>
+
           <div class="col col-7">
             <h3 class="task-name">${task.task_name}</h3>
           </div>
@@ -36,7 +36,6 @@ const renderTaskElm = (task) => {
   const taskList = $('.task-list');
   taskList.append(createTaskElement(task));
   taskList.children('.task:last-child').data(task);
-  console.log($('.task'));
 };
 
 const renderTaskElms = (taskArray) => {
@@ -66,7 +65,7 @@ const deleteTask = function(event) {
 const editTask = function() {
   const taskElm = $(this).parents('.task');
   const taskData = taskElm.data();
-  console.log('getting modal info', taskData, taskElm);
+  console.log('edit task: getting modal info', taskData, taskElm)
   $('#myModal').on('show.bs.modal', function(event) {
     const modal = $(this);
     modal.find('#checkbox').prop('checked', (taskData.completed_at));
@@ -116,5 +115,7 @@ $(document).ready(function() {
     modal.find('#title').val('');
     modal.find('#category').val('');
 
+    // Need to removed attached data for next call
+    $('#myModal').removeData('taskId');
   });
 });

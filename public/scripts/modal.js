@@ -7,7 +7,7 @@ const replaceTask = (taskToReplace, newTask) => {
   // $(newElement).data(newTask);
   const newElm = $(createTaskElement(newTask)).replaceAll(taskToReplace);
   newElm.data(newTask);
-  // console.log('new task', newElement);
+  console.log('new task', newElm);
   // console.log(newElement, newElement.data())
 };
 
@@ -38,11 +38,13 @@ const createUpdateTasks = function(e) {
   };
 
   const taskId = $(this).parents('#myModal').data('taskId');
+  console.log('taskId before sending to SQL', taskId)
   if (taskId) {
     options.method = 'PUT';
     options.url += `/${taskId}`;
     options.id = taskId;
   }
+  console.log('toption before sending to SQL', options)
   // Need to removed attached data for next call
   $('#myModal').removeData('taskId');
 
@@ -52,11 +54,12 @@ const createUpdateTasks = function(e) {
       const tasksArray = [...$('.task-list').children('.task')];
       console.log(tasksArray)
       const taskToReplace = tasksArray.filter(function(taskElm) {
+        console.log('loop:', $(taskElm).data('id'), 'res.id', res.id)
         return $(taskElm).data('id') === res.id;
       })[0];
       console.log('task to replace:', taskToReplace);
       if (taskToReplace) {
-        replaceTask($(taskToReplace), res);
+        replaceTask(taskToReplace, res);
       } else {
         renderTaskElm(res);
       }
