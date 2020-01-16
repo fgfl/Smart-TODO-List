@@ -71,6 +71,7 @@ const createUpdateTasks = function(e) {
     });
 };
 
+
 // == DOCUMENT READY ==
 $(document).ready(function() {
   $('form').on('submit', createUpdateTasks);

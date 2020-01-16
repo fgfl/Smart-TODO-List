@@ -9,7 +9,7 @@
   // animation-duration: 3s;
 
   .task-name {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .task {
@@ -41,6 +41,22 @@
 
 }
 
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.gray {
+  color: gray;
+}
+
 .task-list.slideOut {
   transition: 2s;
   transform: translateX(-100%),
@@ -60,4 +76,10 @@
   }
 
   ;
+}
+
+@media (min-width: 992px) {
+  .task-icons {
+    font-size: 1.5em;
+  }
 }
