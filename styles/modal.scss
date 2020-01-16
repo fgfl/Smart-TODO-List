@@ -1,23 +1,15 @@
 /* The Modal (background) */
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 1031;
-  /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
 }
 
 .modal-backdrop {
@@ -30,15 +22,8 @@
   background-color: #fefefe;
   top: 80px;
   margin: 0 auto;
-  /* 15% from the top and centered */
   padding: 20px;
   width: 90%;
-  /* Could be more or less, depending on screen size */
-}
-
-
-i.fas.fa-times.close {
-  display: flex;
 }
 
 /* The Close Button */
@@ -52,6 +37,11 @@ i.fas.fa-times.close {
   font-weight: bold;
 }
 
+
+i.fas.fa-times.close {
+  display: flex;
+}
+
 .close:hover,
 .close:focus {
   color: black;
@@ -59,6 +49,7 @@ i.fas.fa-times.close {
   cursor: pointer;
 }
 
+/* New task button */
 #newTask {
   position: fixed;
   bottom: 32px;
@@ -80,6 +71,7 @@ i.fas.fa-times.close {
 
 }
 
+/* The Form */
 .form-check-label {
   font-size: 20px;
   margin-left: 8px;
@@ -94,7 +86,7 @@ i.fas.fa-times.close {
   height: 20px;
 }
 
-#ui-datepicker-div {
-  z-index: 1032 !important;
-  font-family: 'Cabin', sans-serif;
-}
+// #ui-datepicker-div {
+//   z-index: 1032 !important;
+//   font-family: 'Cabin', sans-serif;
+// }

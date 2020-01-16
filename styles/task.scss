@@ -4,14 +4,23 @@
   margin-bottom: 125px;
   color: #484848;
 
+  .task-name {
+    font-size: 1.5em;
+  }
+
   .task {
     height: 10%;
     margin-bottom: 1%;
-    background-color: #ffffff;
+    background-color: #473fe7;
+    color: #fff;
   }
 
   .row {
     padding: 1em;
+
+    .col {
+      padding: 0;
+    }
   }
 
   .container.fas {
@@ -19,19 +28,11 @@
   }
 
   .task-icons {
-    text-align: center
-  }
+    text-align: center;
 
-  .task-icons i {
-    padding: 0.25em;
-  }
-
-  .task-name {
-    font-size: 1.5em;
-  }
-
-  .col {
-    padding: 0;
+    i {
+      padding: 0.25em;
+    }
   }
 
 }
