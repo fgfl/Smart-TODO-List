@@ -1,6 +1,31 @@
+const SLIDEOUT_TIME = 600;
+const REENTER_DELAY = 300;
 
 const getTaskList = () => {
   return [...$('.task-list').find('.task')];
+};
+
+const animateSort = (taskList, categoryName) => {
+
+  const listToHide = getTaskList().filter((task) => $(task).data('category_name') !== categoryName);
+
+  const slideOut = taskList
+                    .animate({
+                      'translate': '-100%',
+                    }, SLIDEOUT_TIME)
+                    .promise()
+
+  const hide = $(listToHide).hide(500).promise();
+
+  $.when(slideOut, hide).then(function() {
+    setTimeout(() => {
+      taskList
+        .animate({
+          'translate': '0%',
+        }, SLIDEOUT_TIME)
+        .promise();
+    }, REENTER_DELAY);
+  });
 };
 
 const applyAllSort = function() {
@@ -9,23 +34,24 @@ const applyAllSort = function() {
 
 const applyWatchSort = function() {
   console.log('asdf')
-  const buyList = getTaskList().filter((task) => $(task).data('category_name') === 'watch');
+  animateSort($('.task-list'), 'read')
+  // const buyList = getTaskList().filter((task) => $(task).data('category_name') === 'watch');
 
-  $('.task-list').animate({
-    'translate': '-100%'
-  })
-  .promise()
-  .then(function() {
-    buyList.forEach(task => {
-      $(task).hide();
-    });
+  // $('.task-list').animate({
+  //   'translate': '-100%'
+  // })
+  // .promise()
+  // .then(function() {
+  //   buyList.forEach(task => {
+  //     $(task).hide();
+  //   });
 
-    setTimeout(() => {
-      $('.task-list').animate({
-        'translate': '0%'
-      })},
-      300);
-  });
+  //   setTimeout(() => {
+  //     $('.task-list').animate({
+  //       'translate': '0%'
+  //     })},
+  //     300);
+  // });
 
 };
 
