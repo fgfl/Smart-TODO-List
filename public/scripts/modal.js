@@ -26,7 +26,7 @@ const createUpdateTasks = function(e) {
     category_id: categoryNameMapping[$(this).find('#category').val()],
     task_name: $(this).find('#title').val(),
     schdule_date: null,
-    completed_date: $(this).find('#checkbox').prop('checked') ? null : null,
+    completed_date: $(this).find('#checkbox').prop('checked') ? new Date().toISOString() : null,
     priority: null,
     details_url: null,
   };
