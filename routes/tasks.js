@@ -3,7 +3,9 @@ const router = express.Router();
 const {
   fetchCategory
 } = require('./help_files/get_category');
-const {queryCategoryFromName} = require('./help_files/query_category_from_name');
+const {
+  queryCategoryFromName
+} = require('./help_files/query_category_from_name');
 
 module.exports = (db) => {
   const insertTask = function(req, res, catId) {
@@ -100,7 +102,7 @@ module.exports = (db) => {
           console.log('fetched:', probability, 'items:', items)
           for (const item in items) {
             console.log('get highest prob')
-            console.log(item,':', items[item])
+            console.log(item, ':', items[item])
             if (items[item] > highest) {
               highest = items[item];
               catName = item;
@@ -142,8 +144,21 @@ module.exports = (db) => {
           completed_date = $5,
           priority = $6,
           details_url = $7
-        WHERE id = $8
-        RETURNING *;
+        FROM categories
+        WHERE tasks.id = $8 AND category_id = categories.id
+        RETURNING
+          tasks.id,
+          category_id,
+          category_name,
+          user_id,
+          task_name,
+          created_date,
+          schedule_date,
+          completed_date,
+          priority,
+          details_url,
+          is_active
+        ;
     `;
     const queryParams = [
       Number(req.body.category_id),
@@ -156,12 +171,12 @@ module.exports = (db) => {
       Number(req.params.taskId)
     ];
 
-    console.log(queryParams);
-    console.log(queryString);
+    console.log('PUT query params', queryParams);
 
     db.query(queryString, queryParams)
       .then(data => {
         const tasks = data.rows[0];
+        console.log('task from SQL query', tasks)
         res.send(tasks);
       })
       .catch(err => {

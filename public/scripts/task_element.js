@@ -63,6 +63,7 @@ const deleteTask = function(event) {
 const editTask = function() {
   const taskElm = $(this).parents('.task');
   const taskData = taskElm.data();
+  console.log('edit task: getting modal info', taskData, taskElm)
   $('#myModal').on('show.bs.modal', function(event) {
     const modal = $(this);
     modal.find('#checkbox').prop('checked', (taskData.completed_at));
@@ -112,5 +113,7 @@ $(document).ready(function() {
     modal.find('#title').val('');
     modal.find('#category').val('');
 
+    // Need to removed attached data for next call
+    $('#myModal').removeData('taskId');
   });
 });
