@@ -27,7 +27,7 @@ const createUpdateTasks = function(e) {
     task_name: $(this).find('#title').val(),
     schdule_date: null,
     completed_date: $(this).find('#checkbox').prop('checked') ? null : null,
-    priority: null,
+    priority: $(this).find('#priority').val(),
     details_url: null,
   };
 
@@ -51,10 +51,11 @@ const createUpdateTasks = function(e) {
   $.ajax(options)
     .done(function(res) {
       console.log('res', res.id);
+      console.log(res);
       const tasksArray = [...$('.task-list').children('.task')];
       console.log(tasksArray)
       const taskToReplace = tasksArray.filter(function(taskElm) {
-        console.log('loop:', $(taskElm).data('id'), 'res.id', res.id)
+        console.log('loop:', $(taskElm).data('id'), 'res.id', res.id);
         return $(taskElm).data('id') === res.id;
       })[0];
       console.log('task to replace:', taskToReplace);
