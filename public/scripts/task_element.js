@@ -63,7 +63,7 @@ const deleteTask = function(event) {
 const editTask = function() {
   const taskElm = $(this).parents('.task');
   const taskData = taskElm.data();
-  console.log('edit task: getting modal info', taskData, taskElm)
+  console.log('edit task: getting modal info', taskData, taskElm);
   $('#myModal').on('show.bs.modal', function(event) {
     const modal = $(this);
     modal.find('#checkbox').prop('checked', (taskData.completed_at));

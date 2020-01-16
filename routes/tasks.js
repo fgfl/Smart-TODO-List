@@ -99,17 +99,17 @@ module.exports = (db) => {
           const items = probability.classification;
           let highest = 0;
           let catName = "buy"; // default to buy/products categories
-          console.log('fetched:', probability, 'items:', items)
+          console.log('fetched:', probability, 'items:', items);
           for (const item in items) {
-            console.log('get highest prob')
-            console.log(item, ':', items[item])
+            console.log('get highest prob');
+            console.log(item, ':', items[item]);
             if (items[item] > highest) {
               highest = items[item];
               catName = item;
             }
-            console.log(catName)
+            console.log(catName);
           }
-          console.log('in post', probability)
+          console.log('in post', probability);
           queryCategoryFromName(db, catName)
             .then(catId => {
               console.log(catId);
@@ -176,7 +176,7 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(data => {
         const tasks = data.rows[0];
-        console.log('task from SQL query', tasks)
+        console.log('task from SQL query', tasks);
         res.send(tasks);
       })
       .catch(err => {
@@ -201,7 +201,7 @@ module.exports = (db) => {
       Number(req.params.taskId)
     ];
 
-    console.log('params', queryParams)
+    console.log('params', queryParams);
     db.query(queryString, queryParams)
       .then(data => {
         res.send(data.rows[0]);

@@ -1,7 +1,7 @@
-$('.datepicker').datepicker({
-  format: 'mm/dd/yyyy',
-  startDate: '-3d'
-});
+// $('.datepicker').datepicker({
+//   format: 'mm/dd/yyyy',
+//   startDate: '-3d'
+// });
 
 const replaceTask = (taskToReplace, newTask) => {
   // $(newElement).data(newTask);

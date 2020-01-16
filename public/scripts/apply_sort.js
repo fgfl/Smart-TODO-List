@@ -1,34 +1,32 @@
-
 const getTaskList = () => {
   return [...$('.task-list').find('.task')];
 };
 
 const applyAllSort = function() {
-  getTaskList().sort()
+  console.log("asasdfsef");
 };
 
 const applyWatchSort = function() {
-  console.log('asdf')
-
+  console.log('asdf');
 };
 
 const applyReadSort = function() {
-  console.log('asdf')
+  console.log('asdf');
 
 };
 
 const applyEatSort = function() {
-  console.log('asdf')
+  console.log('asdf');
 
 };
 
 const applyBuySort = function() {
-  console.log('asdf')
+  console.log('asdf');
 
 };
 
 const applyCompletedSort = function() {
-  console.log('asdf')
+  console.log('asdf');
 
 };
 
