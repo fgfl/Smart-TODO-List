@@ -146,7 +146,19 @@ module.exports = (db) => {
           details_url = $7
         FROM categories
         WHERE tasks.id = $8 AND category_id = categories.id
-        RETURNING *;
+        RETURNING
+          tasks.id,
+          category_id,
+          category_name,
+          user_id,
+          task_name,
+          created_date,
+          schedule_date,
+          completed_date,
+          priority,
+          details_url,
+          is_active
+        ;
     `;
     const queryParams = [
       Number(req.body.category_id),
@@ -159,12 +171,12 @@ module.exports = (db) => {
       Number(req.params.taskId)
     ];
 
-    console.log(queryParams);
-    console.log(queryString);
+    console.log('PUT query params', queryParams);
 
     db.query(queryString, queryParams)
       .then(data => {
         const tasks = data.rows[0];
+        console.log('task from SQL query', tasks)
         res.send(tasks);
       })
       .catch(err => {
