@@ -4,7 +4,8 @@
   margin-bottom: 125px;
   color: #484848;
 
-  // transition: 4s;
+  transition: 2s;
+
   // animation-duration: 3s;
 
   .task-name {
@@ -36,8 +37,14 @@
     i {
       padding: 0.25em;
     }
+
   }
 
+}
+
+.task-list.slideOut {
+  transition: 2s;
+  transform: translateX(-100%),
 }
 
 .sort-animation {
@@ -51,6 +58,7 @@
 
   to {
     translate: 100%;
-  };
-}
+  }
 
+  ;
+}

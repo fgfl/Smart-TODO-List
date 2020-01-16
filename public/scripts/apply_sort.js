@@ -24,9 +24,7 @@ const getShowListByCategory = (categoryName) => {
 
 const animateSort = (taskList, listToHide, listToShow) => {
   const slideOut = taskList
-    .animate({
-      'transform': 'translateX(-100%)',
-    }, SLIDEOUT_TIME)
+    .addClass('slideOut')
     .promise();
 
   const hide = $(listToHide).hide(SHOW_HIDE_DELAY).promise();
@@ -34,9 +32,7 @@ const animateSort = (taskList, listToHide, listToShow) => {
   $.when(slideOut, hide).then(function() {
     setTimeout(() => {
       taskList
-        .animate({
-          'transform': 'translateX(0%)',
-        }, SLIDEOUT_TIME)
+        .removeClass('slideOut')
         .promise();
 
       $(listToShow).show(SHOW_HIDE_DELAY).promise();

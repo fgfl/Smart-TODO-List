@@ -53,7 +53,7 @@ const createUpdateTasks = function(e) {
       console.log('res', res.id);
       console.log(res);
       const tasksArray = [...$('.task-list').children('.task')];
-      console.log(tasksArray)
+      console.log(tasksArray);
       const taskToReplace = tasksArray.filter(function(taskElm) {
         console.log('loop:', $(taskElm).data('id'), 'res.id', res.id);
         return $(taskElm).data('id') === res.id;
