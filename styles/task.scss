@@ -4,6 +4,9 @@
   margin-bottom: 125px;
   color: #484848;
 
+  // transition: 4s;
+  // animation-duration: 3s;
+
   .task-name {
     font-size: 1.5em;
   }
@@ -36,3 +39,18 @@
   }
 
 }
+
+.sort-animation {
+  animation: 2s
+}
+
+@keyframes slideOut {
+  from {
+    translate: 0%;
+  }
+
+  to {
+    translate: 100%;
+  };
+}
+

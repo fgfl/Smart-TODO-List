@@ -118,4 +118,9 @@ $(document).ready(function() {
     // Need to removed attached data for next call
     $('#myModal').removeData('taskId');
   });
+
+  $('task-list').on('animationstart');
+  $('task-list').on('animationend');
+  $('task-list').on('animationiteration');
+
 });

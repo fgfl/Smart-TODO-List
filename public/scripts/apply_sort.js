@@ -9,6 +9,8 @@ const applyAllSort = function() {
 
 const applyWatchSort = function() {
   console.log('asdf')
+  $('.task-list').addClass('slideOut');
+  // $('.task-list').css('transform', 'translateX(-100%)');
 
 };
 
