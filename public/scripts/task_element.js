@@ -51,6 +51,7 @@ const renderTaskElm = (task) => {
 
 const renderTaskElms = (taskArray) => {
   for (const task of taskArray) {
+    console.log(task)
     renderTaskElm(task);
   }
 };

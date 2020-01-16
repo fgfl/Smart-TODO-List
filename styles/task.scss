@@ -1,12 +1,15 @@
+$SLIDEOUT_TIME: 0.5s;
+$FADE_TIME: 1s;
+
 .task-list {
   display: flex;
   flex-direction: column;
   margin-bottom: 125px;
   color: #484848;
 
-  transition: 2s;
 
-  // animation-duration: 3s;
+  transition: $SLIDEOUT_TIME;
+  transition-timing-function: cubic-bezier(.48,0,.07,1);
 
   .task-name {
     font-size: 1.5em;
@@ -17,6 +20,10 @@
     margin-bottom: 1%;
     background-color: #473fe7;
     color: #fff;
+
+
+    transition: $SLIDEOUT_TIME;
+    transition-timing-function: cubic-bezier(.48,0,.07,1);
   }
 
   .row {
@@ -42,22 +49,14 @@
 }
 
 .task-list.slideOut {
-  transition: 2s;
-  transform: translateX(-100%),
+  opacity: 0%;
+  transform: translateX(-100%);
 }
 
-.sort-animation {
-  animation: 2s
+.task.squash {
+  transform: scale(0);
 }
 
-@keyframes slideOut {
-  from {
-    translate: 0%;
-  }
-
-  to {
-    translate: 100%;
-  }
-
-  ;
+.hidden {
+  display: none;
 }

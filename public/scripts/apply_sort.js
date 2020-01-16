@@ -23,21 +23,30 @@ const getShowListByCategory = (categoryName) => {
 };
 
 const animateSort = (taskList, listToHide, listToShow) => {
-  const slideOut = taskList
-    .addClass('slideOut')
-    .promise();
-
-  const hide = $(listToHide).hide(SHOW_HIDE_DELAY).promise();
-
-  $.when(slideOut, hide).then(function() {
-    setTimeout(() => {
-      taskList
-        .removeClass('slideOut')
-        .promise();
-
-      $(listToShow).show(SHOW_HIDE_DELAY).promise();
-    }, REENTER_DELAY);
+  taskList.addClass('slideOut');
+  $(listToHide).addClass('squash')
+  taskList.on('transitionend', () => {
+    $(listToHide).addClass('hidden');
+    $(listToShow).removeClass('hidden squash');
+    $(taskList).removeClass('slideOut');
+    taskList.off('transitionend');
   });
+
+  // const slideOut = taskList
+  //   .addClass('slideOut')
+  //   .promise();
+
+  // const hide = $(listToHide).hide(SHOW_HIDE_DELAY).promise();
+
+  // $.when(slideOut, hide).then(function() {
+  //   setTimeout(() => {
+  //     taskList
+  //       .removeClass('slideOut')
+  //       .promise();
+
+  //     $(listToShow).show(SHOW_HIDE_DELAY).promise();
+  //   }, REENTER_DELAY);
+  // });
 };
 
 const applyAllSort = function() {
