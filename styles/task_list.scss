@@ -1,0 +1,14 @@
+.task-list {
+  animation-duration: 3s;
+  animation-name: slideOut;
+}
+
+@keyframes slideOut {
+  from {
+    translate: 0%;
+  }
+
+  to {
+    translate: -100%;
+  };
+}
