@@ -19,7 +19,6 @@ const createTaskElement = (task) => {
     priorityColour = "yellow";
   }
 
-
   // Using Bootstrap's gridding system
   const taskElm = `
     <article class="task">
