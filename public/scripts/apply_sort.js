@@ -9,8 +9,23 @@ const applyAllSort = function() {
 
 const applyWatchSort = function() {
   console.log('asdf')
-  $('.task-list').addClass('slideOut');
-  // $('.task-list').css('transform', 'translateX(-100%)');
+  const buyList = getTaskList().filter((task) => $(task).data('category_name') === 'watch');
+
+  $('.task-list').animate({
+    'translate': '-100%'
+  })
+  .promise()
+  .then(function() {
+    buyList.forEach(task => {
+      $(task).hide();
+    });
+
+    setTimeout(() => {
+      $('.task-list').animate({
+        'translate': '0%'
+      })},
+      300);
+  });
 
 };
 
