@@ -6,16 +6,22 @@ body {
   font-family: 'Cabin',
     sans-serif;
 
-  h1 {
-    font-size: 2em;
-    color: #FFF;
-    margin-bottom: 32px;
+  main {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    top: 100px;
+
+    h1 {
+      font-size: 2em;
+      color: #FFF;
+      margin-bottom: 32px;
+    }
   }
 }
 
-main {
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
-  top: 100px;
+@media (min-width: 992px) {
+  body main {
+    top: 194px;
+  }
 }

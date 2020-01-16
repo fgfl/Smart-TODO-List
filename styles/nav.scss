@@ -2,6 +2,15 @@
   height: 45px;
 }
 
+.navbar-brand span {
+  display: none;
+  margin-left: 8px;
+}
+
+.nav-item i {
+  margin-right: 16px;
+}
+
 .navbar {
   color: white;
   background-color: #3726A6;
@@ -24,6 +33,8 @@
 
 .navbar>p {
   margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 
@@ -32,9 +43,7 @@
   position: absolute;
   top: 54px;
   left: 0;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
+  padding: 16px;
   width: 100%;
 }
 
@@ -70,10 +79,19 @@ hr {
 }
 
 @media (min-width: 992px) {
+
+  .navbar-brand span {
+    display: inline;
+    font-size: 1.5em;
+  }
+
+  .nav-item i {
+    margin-right: 8px;
+  }
+
   .navbar-collapse {
     top: 82px;
     height: 64px;
-    padding: 16px;
   }
 
   .navbar-nav.mr-auto {
