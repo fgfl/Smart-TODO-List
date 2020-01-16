@@ -15,7 +15,7 @@
   .task {
     height: 10%;
     margin-bottom: 1%;
-    background-color: #473fe7;
+    background-color: #007bff;
     color: #fff;
   }
 
@@ -54,7 +54,7 @@
 }
 
 .gray {
-  color: gray;
+  color: #848484;
 }
 
 .task-list.slideOut {
@@ -80,6 +80,10 @@
 
 @media (min-width: 992px) {
   .task-icons {
+    font-size: 1.5em;
+  }
+
+  .task-list .task-name {
     font-size: 1.5em;
   }
 }
