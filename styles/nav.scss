@@ -17,6 +17,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 83px;
+  box-shadow: 0px 9px 24px -13px rgba(46, 46, 46, 1);
 }
 
 .navbar-nav.mr-auto {
@@ -35,6 +36,10 @@
   margin-left: auto;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.navbar-collapse a:hover {
+  color: #F2BE22 !important;
 }
 
 

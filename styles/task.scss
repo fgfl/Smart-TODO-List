@@ -12,13 +12,13 @@ $FADE_TIME: 1s;
   transition-timing-function: cubic-bezier(.48,0,.07,1);
 
   .task-name {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .task {
     height: 10%;
     margin-bottom: 1%;
-    background-color: #473fe7;
+    background-color: #007bff;
     color: #fff;
 
 
@@ -48,6 +48,22 @@ $FADE_TIME: 1s;
 
 }
 
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.gray {
+  color: #848484;
+}
+
 .task-list.slideOut {
   opacity: 0%;
   transform: translateX(-100%);
@@ -59,4 +75,14 @@ $FADE_TIME: 1s;
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 992px) {
+  .task-icons {
+    font-size: 1.5em;
+  }
+
+  .task-list .task-name {
+    font-size: 1.5em;
+  }
 }

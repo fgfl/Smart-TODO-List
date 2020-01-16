@@ -15,8 +15,10 @@ const createTaskElement = (task) => {
     priorityColour = "red";
   } else if (task.priority === 2) {
     priorityColour = "orange";
-  } else {
+  } else if (task.priority === 1) {
     priorityColour = "yellow";
+  } else {
+    priorityColour = "gray";
   }
 
   // Using Bootstrap's gridding system
@@ -32,7 +34,7 @@ const createTaskElement = (task) => {
             <h3 class="task-name">${task.task_name}</h3>
           </div>
           <div class="col col-3 task-icons">
-            <i class="far fa-flag ${priorityColour}"></i>
+            <i class="fas fa-flag ${priorityColour}"></i>
             <i class="fas fa-edit"></i>
             <i class="fas fa-trash"></i>
           </div>
@@ -120,6 +122,13 @@ $(document).ready(function() {
       // Add some data to pass to handler?,
       deleteTask
     );
+
+  // Hide the menu whe you click on main or any of the navbar links on mobile breakpoint
+  $('main, .mr-auto').click(function() {
+    $('.navbar-collapse').removeClass('show');
+    $('.navbar-collapse').addClass('hide');
+  });
+
   // Clear modal form on click close modal button
   $('#myModal').on('hidden.bs.modal', function(e) {
     const modal = $(this);
