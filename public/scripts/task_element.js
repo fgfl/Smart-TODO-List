@@ -144,6 +144,8 @@ $(document).ready(function() {
     modal.find('#checkbox').prop('checked', false);
     modal.find('#title').val('');
     modal.find('#category').val('');
+    modal.find('.datepicker').val('');
+    modal.find('#priority').val('');
 
     // Need to removed attached data for next call
     $('#myModal').removeData('taskId');
