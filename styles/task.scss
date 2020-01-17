@@ -17,7 +17,7 @@ $FADE_TIME: 1s;
   .task {
     height: 10%;
     margin-bottom: 1%;
-    background-color: #323232;
+    background-color: hsl(0, 0%, 20%);
     color: #fff;
 
 
@@ -25,9 +25,14 @@ $FADE_TIME: 1s;
     transition-timing-function: cubic-bezier(.48, 0, .07, 1);
 
     &.completed {
-      background-color: hsl(211, 50%, 75%);
+      background-color: hsl(0, 0%, 50%);
+      color: hsl(0, 0%, 30%)
     }
   }
+
+
+
+
 
   .row {
     padding: 1em;
