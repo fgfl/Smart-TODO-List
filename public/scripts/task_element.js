@@ -30,6 +30,7 @@ const createTaskElement = (task) => {
 
           <div class="col col-7">
             <h3 class="task-name">${task.task_name}</h3>
+            <span>${new Date(task.scheduled_date).toDateString()}</span>
           </div>
           <div class="col col-3 task-icons">
             <i class="fas fa-flag ${priorityColour}"></i>
