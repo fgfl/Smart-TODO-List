@@ -176,7 +176,7 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(data => {
         const tasks = data.rows[0];
-        console.log('task from SQL query', tasks)
+        console.log('task from SQL query', tasks);
         res.send(tasks);
       })
       .catch(err => {
