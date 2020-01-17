@@ -7,7 +7,7 @@ CREATE TABLE tasks (
   created_date TIMESTAMP NOT NULL DEFAULT NOW(),
   schedule_date TIMESTAMP,
   completed_date TIMESTAMP,
-  priority SMALLINT,
+  priority SMALLINT CHECK (priority >= 0 AND priority <= 3),
   details_url TEXT,
   is_active BOOLEAN NOT NULL DEFAULT TRUE
 );
