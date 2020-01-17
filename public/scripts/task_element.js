@@ -41,9 +41,11 @@ const createTaskElement = (task) => {
             <span>${detailsText}</span>
           </div>
           <div class="col col-3 task-icons">
-            <i class="fas fa-flag ${priorityColour}"></i>
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
+            <ul>
+              <li><i class="fas fa-flag ${priorityColour}"></i></li>
+            <li><a href="#"><i class="fas fa-edit"></a></i></li>
+            <li><a href="#"><i class="fas fa-trash"></a></i></li>
+            </ul>
           </div>
         </div>
       </div>

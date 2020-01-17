@@ -6,10 +6,13 @@ $FADE_TIME: 1s;
   flex-direction: column;
   color: #484848;
   margin-bottom: 150px;
-
-
   transition: $SLIDEOUT_TIME;
   transition-timing-function: cubic-bezier(.48, 0, .07, 1);
+
+  &.slideOut {
+    opacity: 0%;
+    transform: translateX(-100%);
+  }
 
   .task-name {
     font-size: 1.2em;
@@ -21,6 +24,28 @@ $FADE_TIME: 1s;
     background-color: hsl(0, 0%, 20%);
     color: #fff;
 
+    .squash {
+      transform: scale(0);
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    ul li {
+      list-style-type: none;
+      display: inline;
+
+    }
+
+    ul li a {
+      color: #FFF;
+    }
+
+    ul li a:hover {
+      color: #007bff;
+    }
+
 
     transition: $SLIDEOUT_TIME;
     transition-timing-function: cubic-bezier(.48, 0, .07, 1);
@@ -30,10 +55,6 @@ $FADE_TIME: 1s;
       color: hsl(0, 0%, 30%)
     }
   }
-
-
-
-
 
   .row {
     padding: 1em;
@@ -62,24 +83,15 @@ $FADE_TIME: 1s;
 }
 
 .orange {
-  color: orange;
+  color: #F2BE22;
 }
 
 .yellow {
-  color: yellow;
+  color: #F2E635;
 }
 
 .gray {
   color: #848484;
-}
-
-.task-list.slideOut {
-  opacity: 0%;
-  transform: translateX(-100%);
-}
-
-.task.squash {
-  transform: scale(0);
 }
 
 .hidden {
