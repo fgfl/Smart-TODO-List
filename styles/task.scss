@@ -4,12 +4,17 @@ $FADE_TIME: 1s;
 .task-list {
   display: flex;
   flex-direction: column;
-  margin-bottom: 125px;
   color: #484848;
+  margin-bottom: 250px;
 
 
   transition: $SLIDEOUT_TIME;
-  transition-timing-function: cubic-bezier(.48,0,.07,1);
+  transition-timing-function: cubic-bezier(.48, 0, .07, 1);
+
+  &.slideOut {
+    opacity: 0%;
+    transform: translateX(-100%);
+  }
 
   .task-name {
     font-size: 1.2em;
@@ -17,16 +22,37 @@ $FADE_TIME: 1s;
 
   .task {
     height: 10%;
-    margin-bottom: 1%;
-    background-color: hsl(211, 100%, 50%);
+    margin-bottom: 2%;
+    background-color: hsl(0, 0%, 20%);
     color: #fff;
-
-
     transition: $SLIDEOUT_TIME;
-    transition-timing-function: cubic-bezier(.48,0,.07,1);
+    transition-timing-function: cubic-bezier(.48, 0, .07, 1);
 
     &.completed {
-      background-color: hsl(211, 50%, 75%);
+      background-color: hsl(0, 0%, 50%);
+      color: hsl(0, 0%, 30%)
+    }
+
+    &.squash {
+      transform: scale(0);
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    ul li {
+      list-style-type: none;
+      display: inline;
+
+    }
+
+    ul li a {
+      color: #FFF;
+    }
+
+    ul li a:hover {
+      color: #007bff;
     }
   }
 
@@ -49,7 +75,6 @@ $FADE_TIME: 1s;
       padding: 0.25em;
     }
   }
-
 }
 
 .red {
@@ -57,24 +82,15 @@ $FADE_TIME: 1s;
 }
 
 .orange {
-  color: orange;
+  color: #F2BE22;
 }
 
 .yellow {
-  color: yellow;
+  color: #F2E635;
 }
 
 .gray {
   color: #848484;
-}
-
-.task-list.slideOut {
-  opacity: 0%;
-  transform: translateX(-100%);
-}
-
-.task.squash {
-  transform: scale(0);
 }
 
 .hidden {

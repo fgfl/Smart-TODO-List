@@ -24,7 +24,7 @@ const getShowListByCategory = (categoryName) => {
 
 const animateSort = (taskList, listToHide, listToShow) => {
   taskList.addClass('slideOut');
-  $(listToHide).addClass('squash')
+  $(listToHide).addClass('squash');
   taskList.on('transitionend', () => {
     $(listToHide).addClass('hidden');
     $(listToShow).removeClass('hidden squash');
