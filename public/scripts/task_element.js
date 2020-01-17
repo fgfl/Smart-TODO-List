@@ -19,6 +19,8 @@ const createTaskElement = (task) => {
     priorityColour = "gray";
   }
 
+  const scheduled_date = task.scheduled_date ? new Date(task.scheduled_date).toDateString() : '';
+
   // Using Bootstrap's gridding system
   const taskElm = `
     <article class="task ${task.completed_date ? 'completed' : ''}">
@@ -30,7 +32,7 @@ const createTaskElement = (task) => {
 
           <div class="col col-7">
             <h3 class="task-name">${task.task_name}</h3>
-            <span>${new Date(task.scheduled_date).toDateString()}</span>
+            <span>${scheduled_date}</span>
           </div>
           <div class="col col-3 task-icons">
             <i class="fas fa-flag ${priorityColour}"></i>
