@@ -20,11 +20,18 @@ $FADE_TIME: 1s;
 
   .task {
     height: 10%;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     background-color: hsl(0, 0%, 20%);
     color: #fff;
+    transition: $SLIDEOUT_TIME;
+    transition-timing-function: cubic-bezier(.48, 0, .07, 1);
 
-    .squash {
+    &.completed {
+      background-color: hsl(0, 0%, 50%);
+      color: hsl(0, 0%, 30%)
+    }
+
+    &.squash {
       transform: scale(0);
     }
 
@@ -44,15 +51,6 @@ $FADE_TIME: 1s;
 
     ul li a:hover {
       color: #007bff;
-    }
-
-
-    transition: $SLIDEOUT_TIME;
-    transition-timing-function: cubic-bezier(.48, 0, .07, 1);
-
-    &.completed {
-      background-color: hsl(0, 0%, 50%);
-      color: hsl(0, 0%, 30%)
     }
   }
 
@@ -75,7 +73,6 @@ $FADE_TIME: 1s;
       padding: 0.25em;
     }
   }
-
 }
 
 .red {
