@@ -1,27 +1,67 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #fff;
+  width: 100%;
+  height: 100%;
+
+  &.movie-background {
+    width: 100%;
+    height: 100px;
+  }
+
+  &.movie-background::after {
+    content: "";
+    background-image: url('../img/movie_bg.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    opacity: 0.60;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+  }
+
+  &.movie-background::after {
+    content: "";
+    background-image: url('../img/movie_bg.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    opacity: 0.60;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+  }
+
 
   font-family: 'Cabin',
-    sans-serif;
+  sans-serif;
 
   main {
     position: relative;
     width: 90%;
+    height: 100%;
     margin: 0 auto;
     top: 100px;
+    opacity: 1;
+  }
 
-    h1 {
-      font-size: 2em;
-      color: #4c4c4c;
-      margin-bottom: 32px;
-    }
+  h1 {
+    font-size: 2em;
+    color: #FFF;
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 }
 
 @media (min-width: 992px) {
   body main {
-    top: 194px;
+    top: 140px;
   }
 }
