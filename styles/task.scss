@@ -18,12 +18,16 @@ $FADE_TIME: 1s;
   .task {
     height: 10%;
     margin-bottom: 1%;
-    background-color: #007bff;
+    background-color: hsl(211, 100%, 50%);
     color: #fff;
 
 
     transition: $SLIDEOUT_TIME;
     transition-timing-function: cubic-bezier(.48,0,.07,1);
+
+    &.completed {
+      background-color: hsl(211, 50%, 75%);
+    }
   }
 
   .row {

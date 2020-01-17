@@ -74,7 +74,7 @@ module.exports = (db) => {
           JOIN categories ON categories.id = category_id
         WHERE user_id = $1
           AND is_active = TRUE
-        ORDER BY priority DESC;
+        ORDER BY schedule_date ASC, created_date ASC, priority DESC;
     `;
     const queryParams = [req.session.user_id];
 

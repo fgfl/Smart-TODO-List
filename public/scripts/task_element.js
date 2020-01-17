@@ -8,8 +8,6 @@ const createTaskElement = (task) => {
   };
   const categoryIcon = categoryMapping[task.category_id];
 
-
-
   let priorityColour = "";
   if (task.priority === 3) {
     priorityColour = "red";
@@ -23,7 +21,7 @@ const createTaskElement = (task) => {
 
   // Using Bootstrap's gridding system
   const taskElm = `
-    <article class="task">
+    <article class="task ${task.completed_date ? 'completed' : ''}">
       <div class="container">
         <div class="row">
           <div class="col col-2">
