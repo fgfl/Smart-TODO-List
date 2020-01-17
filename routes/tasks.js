@@ -166,7 +166,7 @@ module.exports = (db) => {
       req.body.task_name,
       req.body.scheduled_date ? req.body.scheduled_date : null,
       req.body.completed_date ? req.body.completed_date : null,
-      req.body.priority ? req.body.priority : null,
+      Number(req.body.priority),
       req.body.details_url ? req.body.details_url : null,
       Number(req.params.taskId)
     ];

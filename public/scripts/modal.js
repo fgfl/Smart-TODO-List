@@ -22,10 +22,13 @@ const createUpdateTasks = function(e) {
     'watch': 4
   };
 
+  const schedule_date = $(this).find('.datepicker').val();
+  const task_name = $(this).find('#title').val();
+
   const data = {
     category_id: categoryNameMapping[$(this).find('#category').val()],
-    task_name: $(this).find('#title').val(),
-    schdule_date: null,
+    task_name: task_name !== '' ? task_name : null,
+    schdule_date: schedule_date ? new Date(schedule_date).toISOString() : null,
     completed_date: $(this).find('#checkbox').prop('checked') ? new Date().toISOString() : null,
     priority: $(this).find('#priority').val(),
     details_url: null,
