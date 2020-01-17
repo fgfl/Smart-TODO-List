@@ -23,6 +23,7 @@ const getShowListByCategory = (categoryName) => {
 };
 
 const animateSort = (taskList, listToHide, listToShow) => {
+  console.log('in animate sort')
   taskList.addClass('slideOut');
   $(listToHide).addClass('squash');
   taskList.on('transitionend', () => {

@@ -64,10 +64,17 @@ const createUpdateTasks = function(e) {
       console.log('task to replace:', taskToReplace);
       if (taskToReplace) {
         replaceTask(taskToReplace, res);
+
       } else {
         renderTaskElm(res);
       }
       $('#myModal').modal('hide');
+
+      animateSort(
+        $('.task-list'),
+        getHideListByCategory(res.category_name),
+        getShowListByCategory(res.category_name)
+      );
     })
     .fail(function(err) {
       console.error('Failed to submit form', err);

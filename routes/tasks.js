@@ -20,6 +20,7 @@ module.exports = (db) => {
     ];
 
     const queryString = `
+      WITH insert_instr AS (
         INSERT INTO tasks (
           category_id,
           user_id,
@@ -37,7 +38,32 @@ module.exports = (db) => {
           $6,
           $7
         )
-        RETURNING *;
+        RETURNING
+          tasks.id,
+          category_id,
+          user_id,
+          task_name,
+          created_date,
+          scheduled_date,
+          completed_date,
+          priority,
+          details_url,
+          is_active
+      )
+      SELECT
+        insert_instr.id,
+        category_id,
+        category_name,
+        user_id,
+        task_name,
+        created_date,
+        scheduled_date,
+        completed_date,
+        priority,
+        details_url,
+        is_active
+        FROM insert_instr
+          JOIN categories ON categories.id = category_id;
       `;
 
     db.query(queryString, queryParams)
@@ -145,7 +171,7 @@ module.exports = (db) => {
           priority = $6,
           details_url = $7
         FROM categories
-        WHERE tasks.id = $8 AND category_id = categories.id
+        WHERE tasks.id = $8 AND $1 = categories.id
         RETURNING
           tasks.id,
           category_id,

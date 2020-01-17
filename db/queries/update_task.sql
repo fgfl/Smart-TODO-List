@@ -9,4 +9,15 @@
           details_url = null
         FROM categories
         WHERE tasks.id = 1 AND category_id = categories.id
-        RETURNING *;
+        RETURNING ;
+          tasks.id,
+          category_id,
+          category_name,
+          user_id,
+          task_name,
+          created_date,
+          scheduled_date,
+          completed_date,
+          priority,
+          details_url,
+          is_active;
