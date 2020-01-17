@@ -60,7 +60,7 @@ const renderTaskElm = (task) => {
 
 const renderTaskElms = (taskArray) => {
   for (const task of taskArray) {
-    console.log(task)
+    console.log(task);
     renderTaskElm(task);
   }
 };
