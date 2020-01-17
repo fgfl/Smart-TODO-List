@@ -24,7 +24,7 @@ module.exports = (db) => {
           category_id,
           user_id,
           task_name,
-          schedule_date,
+          scheduled_date,
           completed_date,
           priority,
           details_url)
@@ -65,7 +65,7 @@ module.exports = (db) => {
           user_id,
           task_name,
           created_date,
-          schedule_date,
+          scheduled_date,
           completed_date,
           priority,
           details_url,
@@ -74,7 +74,7 @@ module.exports = (db) => {
           JOIN categories ON categories.id = category_id
         WHERE user_id = $1
           AND is_active = TRUE
-        ORDER BY schedule_date ASC, created_date ASC, priority DESC;
+        ORDER BY scheduled_date ASC, created_date ASC, priority DESC;
     `;
     const queryParams = [req.session.user_id];
 
@@ -140,7 +140,7 @@ module.exports = (db) => {
           category_id = $1,
           user_id = $2,
           task_name = $3,
-          schedule_date = $4,
+          scheduled_date = $4,
           completed_date = $5,
           priority = $6,
           details_url = $7
@@ -153,7 +153,7 @@ module.exports = (db) => {
           user_id,
           task_name,
           created_date,
-          schedule_date,
+          scheduled_date,
           completed_date,
           priority,
           details_url,

@@ -83,7 +83,7 @@ const editTask = function() {
     modal.find('#checkbox').prop('checked', (taskData.completed_date) ? true : false);
     modal.find('#title').val(taskData.task_name);
     modal.find('#category').val(taskData.category_name);
-   
+    modal.find('.datepicker').val(taskData.schedule ? new Date(taskData.scheduled_date).toLocaleDateString() : '');
     modal.find('#priority').val(taskData.priority);
     modal.off('show.bs.modal');
   });

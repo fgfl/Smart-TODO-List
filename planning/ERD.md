@@ -20,7 +20,7 @@ TASKS {
   id: PK,
   task_name: string,
   created_date: TIMESTAMP,
-  schedule_date: TIMESTAMP,
+  scheduled_date: TIMESTAMP,
   completed_date: TIMESTAMP,
   priority: INTEGER,
   details_url: string/url

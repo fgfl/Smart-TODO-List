@@ -5,7 +5,7 @@ SELECT
     user_id,
     task_name,
     created_date,
-    schedule_date,
+    scheduled_date,
     completed_date,
     priority,
     details_url,
@@ -13,4 +13,4 @@ SELECT
   FROM tasks
     JOIN categories ON categories.id = category_id
   WHERE user_id = 1
-  ORDER BY schedule_date ASC, created_date ASC, priority DESC;
+  ORDER BY scheduled_date ASC, created_date ASC, priority DESC;

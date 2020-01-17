@@ -1,10 +1,10 @@
 INSERT INTO tasks (
-  category_id, 
-  user_id, 
-  task_name, 
-  schedule_date, 
-  completed_date, 
-  priority, 
+  category_id,
+  user_id,
+  task_name,
+  scheduled_date,
+  completed_date,
+  priority,
   details_url)
 VALUES (
   3,

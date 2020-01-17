@@ -5,7 +5,7 @@ CREATE TABLE tasks (
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   task_name TEXT NOT NULL,
   created_date TIMESTAMP NOT NULL DEFAULT NOW(),
-  schedule_date TIMESTAMP,
+  scheduled_date TIMESTAMP,
   completed_date TIMESTAMP,
   priority SMALLINT CHECK (priority >= 0 AND priority <= 3),
   details_url TEXT,

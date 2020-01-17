@@ -3,7 +3,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -21,7 +21,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -39,7 +39,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -57,7 +57,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -76,7 +76,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -95,7 +95,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -114,7 +114,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
@@ -134,7 +134,7 @@ INSERT INTO tasks (
   category_id,
   user_id,
   task_name,
-  schedule_date,
+  scheduled_date,
   completed_date,
   priority,
   details_url
