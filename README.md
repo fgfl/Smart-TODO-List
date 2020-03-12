@@ -68,17 +68,25 @@ http://localhost:8080/login/1
 
 - mobile view of app
 
+---
+
 ![Full page view](https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/doc/fullPageView.png)
 
 - full page view of app
+
+---
 
 ![Add new task](https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/doc/AddNewTask.gif)
 
 - Adding a new task. The category was left blank, so a category is auto assigned.
 
+---
+
 ![Completing a task](https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/doc/CompleteTask.gif)
 
 - Marking a task as complete.
+
+---
 
 ![Filter task list](https://raw.githubusercontent.com/fgfl/Smart-TODO-List/master/doc/FilterTask.gif)
 
