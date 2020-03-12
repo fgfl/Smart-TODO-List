@@ -1,5 +1,13 @@
 # Smart To Do List
 
+A to do list that can auto categorize the created items into one of four categories: Watch, Eat, Read, or Buy. A date and priority can be given to each item. All the items can be edited if the autocategorization or other information is incorrect.
+
+The user can mark an item as complete to move the item to a completed list. If the user no longer needs the item. It can be deleted.
+
+The list can be filtered to show any one of the categories.
+
+The app was designed with a mobile first approach.
+
 ## Project Setup
 
 ### Set Up the Database
@@ -13,14 +21,15 @@ CREATE ROLE labber WITH LOGIN password 'labber';
 CREATE DATABASE midterm OWNER labber;
 ```
 
-### Set Up the Code
+### Set Up the Repo
 
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
 2. Update the .env file with your correct local information
 
-- username: `labber`
-- password: `labber`
-- database: `midterm`
+- DB_USER: `labber`
+- DB_PASS: `labber`
+- DB_NAME: `midterm`
+- DB_UCLASSIFY_READ_KEY: sign up for a free uClassify account at https://www.uclassify.com/ and add your read key here.
 
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
@@ -34,8 +43,23 @@ CREATE DATABASE midterm OWNER labber;
 
 8. Visit `http://localhost:8080/`
 
+## Notes on Usage
+
+A log in form was not built. To login, send a GET request to the login route with the user id as a parameter.
+
+Example: Enter the below into the browser to login. The number '1' can be replaced with another number for another user.
+
+```
+http://localhost:8080/login/1
+```
+
 ## Dependencies
 
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- jQuery 3.4.1 or above
+- body-parser 1.19.0 or above
+- ejs 2.6.2 or above
+
+## Images
