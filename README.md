@@ -1,7 +1,6 @@
 # Contributors
 
-[Mitch Lum](https://github.com/mxmitch)
-[Frederick lee](https://github.com/fgfl)
+[Mitch Lum](https://github.com/mxmitch), [Frederick lee](https://github.com/fgfl)
 
 # Smart To Do List
 
