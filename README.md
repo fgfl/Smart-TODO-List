@@ -1,3 +1,8 @@
+# Contributors
+
+[Mitch Lum](https://github.com/mxmitch)
+[Frederick lee](https://github.com/fgfl)
+
 # Smart To Do List
 
 A to do list that can auto categorize the created items into one of four categories: Watch, Eat, Read, or Buy. A date and priority can be given to each item. All the items can be edited if the autocategorization or other information is incorrect.
