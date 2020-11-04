@@ -12,6 +12,10 @@ The list can be filtered to show any one of the categories.
 
 The app was designed with a mobile first approach.
 
+## Preview Instructions
+
+Visit https://fgfl-smart-todo-list.herokuapp.com/login/1 or https://fgfl-smart-todo-list.herokuapp.com/login/2 to login as user 1 or 2. A login form has not been implemented, so these login endpoints are used to quickly test the app.
+
 ## Project Setup
 
 ### Set Up the Database
